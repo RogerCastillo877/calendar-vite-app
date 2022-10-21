@@ -65,3 +65,5 @@ yarn add date-fns
 ## SweetAlert
 ```yarn add sweetalert2```
 
+## Redux toolKit [https://redux-toolkit.js.org/]
+```yarn add @reduxjs/toolkit```
