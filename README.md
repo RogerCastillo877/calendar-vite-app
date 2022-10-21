@@ -67,3 +67,4 @@ yarn add date-fns
 
 ## Redux toolKit [https://redux-toolkit.js.org/]
 ```yarn add @reduxjs/toolkit```
+```yarn add react-redux```
