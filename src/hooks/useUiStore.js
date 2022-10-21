@@ -8,11 +8,11 @@ export const useUiStore = () => {
   const { isDateModalOpen } = useSelector( state => state.ui );
 
   const openDateModal = () => {
-    dispatch( onOpenDateModal );
+    dispatch( onOpenDateModal() );
   };
 
   const closeDateModal = () => {
-    dispatch( onCloseDateModal );
+    dispatch( onCloseDateModal() );
   };
 
   const toggleDateModal = () => {
