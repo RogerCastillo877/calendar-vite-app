@@ -55,3 +55,6 @@ Create dir ```router``` and file __AppRouter.jsx__
 yarn add react-big-calendar
 yarn add date-fns
 ```
+
+## React Modal
+```yarn add react-modal```
