@@ -56,5 +56,9 @@ yarn add react-big-calendar
 yarn add date-fns
 ```
 
-## React Modal
+## React Modal [https://www.npmjs.com/package/react-modal]
 ```yarn add react-modal```
+
+## React datePicker [https://www.npmjs.com/package/react-datepicker]
+```yarn add react-datepicker```
+
