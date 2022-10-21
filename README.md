@@ -62,3 +62,6 @@ yarn add date-fns
 ## React datePicker [https://www.npmjs.com/package/react-datepicker]
 ```yarn add react-datepicker```
 
+## SweetAlert
+```yarn add sweetalert2```
+

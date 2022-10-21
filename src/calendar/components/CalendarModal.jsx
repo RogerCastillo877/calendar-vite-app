@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { addHours, differenceInSeconds } from 'date-fns';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.all';
 
 import Modal from 'react-modal';
-
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -25,7 +26,8 @@ Modal.setAppElement('#root');
 
 export const CalendarModal = () => {
 
-  const [ isOpen, setIsOpen ] = useState();
+  const [ isOpen, setIsOpen ] = useState(true);
+  const [ formSubmited, setFormSubmited ] = useState(false);
 
   const [formValues, setFormValues ] = useState({
     title: '',
@@ -34,10 +36,19 @@ export const CalendarModal = () => {
     end: addHours( new Date(), 2),
   });
 
+  const titleClass = useMemo( () => {
+    if( !formSubmited ) return '';
+
+    return ( formValues.title.length > 0 )
+      ? ''
+      : 'is-invalid'
+
+  }, [ formValues.title, formSubmited]);
+
   const onInputChange = ({ target }) => {
     setformValues({
       ...formValues,
-      [ target.name ]: target.vale
+      [ target.name ]: target.value
     });
   };
 
@@ -55,17 +66,18 @@ export const CalendarModal = () => {
 
   const onSubmit = ( event ) => {
     event.preventDefault();
+    setFormSubmited(true);
 
     const difference = differenceInSeconds( formValues.end, formValues.start );
 
     if ( isNaN( difference ) || difference <= 0 ) {
-      console.log('Error de fechas');
+      Swal.fire('Fechas incorrectas', 'Revisar las fechas ingresadas', 'error');
       return;
     };
 
     if ( formValues.title.length <= 0 ) return;
         
-    console.log(formValues);
+    // console.log(formValues);
   };
 
   return (
@@ -113,7 +125,7 @@ export const CalendarModal = () => {
               <label>Titulo y notas</label>
               <input 
                   type="text" 
-                  className="form-control"
+                  className={`form-control ${ titleClass }`}
                   placeholder="Título del evento"
                   name="title"
                   autoComplete="off"
