@@ -2,7 +2,7 @@ import { calendarAPi } from "../../src/api";
 
 describe('should test calendarApi', () => {
   
-  test('should have config for defect', () => {
+  test('should have config for default', () => {
     expect( calendarAPi.defaults.baseURL ).toBe( process.env.VITE_API_URL );
   });
 
